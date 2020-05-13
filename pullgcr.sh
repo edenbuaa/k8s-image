@@ -39,7 +39,7 @@ gcr.io/kfserving/pytorchserver：0.2.2
 gcr.io/kfserving/storage-initializer:0.2.2
 gcr.io/kfserving/kfserving-controller:0.2.2
 gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0
-nvcr.io/nvidia/tensorrtserver：19.05-py3
+nvcr.io/nvidia/tensorrtserver:19.05-py3
 )
 docker login
 
