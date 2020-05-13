@@ -1,5 +1,5 @@
 #!/bin/bash
-gcr_images=(
+gcr_images1=(
 gcr.io/kubeflow-images-public/ingress-setup:latest
 gcr.io/kubeflow-images-public/admission-webhook:v1.0.0-gaf96e4e3
 gcr.io/kubeflow-images-public/kubernetes-sigs/application:1.0-beta
@@ -29,6 +29,9 @@ gcr.io/spark-operator/spark-operator:v1beta2-1.0.0-2.4.4
 gcr.io/spark-operator/spark-operator:v1beta2-1.0.0-2.4.4
 gcr.io/google_containers/spartakus-amd64:v1.1.0
 gcr.io/kubeflow-images-public/tf_operator:v1.0.0-g92389064
+)
+gcr_images=(
+gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0
 )
 docker login
 
