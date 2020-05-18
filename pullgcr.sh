@@ -41,9 +41,12 @@ gcr.io/kfserving/kfserving-controller:0.2.2
 gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0
 nvcr.io/nvidia/tensorrtserver:19.05-py3
 )
-gcr_images=(
+gcr_images3=(
 gcr.io/kubeflow-images-public/admission-webhook:v20190520-v0-139-gcee39dbc-dirty-0d8f4c
 gcr.io/kubeflow-images-public/jupyter-web-app:v0.5.0
+)
+gcr_images=(
+gcr.io/kfserving/kfserving-controller:0.2.2
 )
 docker login
 
