@@ -30,7 +30,7 @@ gcr.io/spark-operator/spark-operator:v1beta2-1.0.0-2.4.4
 gcr.io/google_containers/spartakus-amd64:v1.1.0
 gcr.io/kubeflow-images-public/tf_operator:v1.0.0-g92389064
 )
-gcr_images=(
+gcr_images2=(
 gcr.io/kfserving/alibi-explainer：0.2.2
 gcr.io/kfserving/logger:0.2.2
 gcr.io/kfserving/sklearnserver：0.2.2
@@ -40,6 +40,10 @@ gcr.io/kfserving/storage-initializer:0.2.2
 gcr.io/kfserving/kfserving-controller:0.2.2
 gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0
 nvcr.io/nvidia/tensorrtserver:19.05-py3
+)
+gcr_images=(
+gcr.io/kubeflow-images-public/admission-webhook:v20190520-v0-139-gcee39dbc-dirty-0d8f4c
+gcr.io/kubeflow-images-public/jupyter-web-app:v0.5.0
 )
 docker login
 
