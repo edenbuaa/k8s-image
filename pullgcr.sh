@@ -31,11 +31,11 @@ gcr.io/google_containers/spartakus-amd64:v1.1.0
 gcr.io/kubeflow-images-public/tf_operator:v1.0.0-g92389064
 )
 gcr_images2=(
-gcr.io/kfserving/alibi-explainer：0.2.2
+gcr.io/kfserving/alibi-explainer:0.2.2
 gcr.io/kfserving/logger:0.2.2
-gcr.io/kfserving/sklearnserver：0.2.2
-gcr.io/kfserving/xgbserver：0.2.2
-gcr.io/kfserving/pytorchserver：0.2.2
+gcr.io/kfserving/sklearnserver:0.2.2
+gcr.io/kfserving/xgbserver:0.2.2
+gcr.io/kfserving/pytorchserver:0.2.2
 gcr.io/kfserving/storage-initializer:0.2.2
 gcr.io/kfserving/kfserving-controller:0.2.2
 gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0
