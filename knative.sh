@@ -43,33 +43,38 @@ docker login
 # echo $iid
 # docker tag $iid paihub/istio:knative-v0.12.0
 # docker push paihub/istio:knative-v0.12.0
-docker pull gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:8e606671215cc029683e8cd633ec5de9eabeaa6e9a4392ff289883304be1f418 | grep "Digest:" | cut -f2 -d " " > container_digest
+# docker pull gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:8e606671215cc029683e8cd633ec5de9eabeaa6e9a4392ff289883304be1f418 | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/activator:knative-v0.11.1
+# docker push paihub/activator:knative-v0.11.1
+# docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa@sha256:5e0fadf574e66fb1c893806b5c5e5f19139cc476ebf1dff9860789fe4ac5f545 | grep "Digest:" | cut -f2 -d " " > container_digest
+#  iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/autoscaler-hpa:knative-v0.11.1
+# docker push paihub/autoscaler-hpa:knative-v0.11.1
+# docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:ef1f01b5fb3886d4c488a219687aac72d28e72f808691132f658259e4e02bb27 | grep "Digest:" | cut -f2 -d " " > container_digest
+#  iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/autoscaler:knative-v0.11.1
+# docker push paihub/autoscaler:knative-v0.11.1 
+# docker pull gcr.io/knative-releases/knative.dev/serving/cmd/networking/istio@sha256:727a623ccb17676fae8058cb1691207a9658a8d71bc7603d701e23b1a6037e6c | grep "Digest:" | cut -f2 -d " " > container_digest
+#  iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/istio:knative-v0.11.1
+# docker push paihub/istio:knative-v0.11.1  
+# docker pull gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:1ef3328282f31704b5802c1136bd117e8598fd9f437df8209ca87366c5ce9fcb | grep "Digest:" | cut -f2 -d " " > container_digest
+#  iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/webhook:knative-v0.11.1
+# docker push paihub/webhook:knative-v0.11.1 
+# docker pull gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:5ca13e5b3ce5e2819c4567b75c0984650a57272ece44bc1dabf930f9fe1e19a1 | grep "Digest:" | cut -f2 -d " " > container_digest
+#  iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/controller:knative-v0.11.1
+# docker push paihub/controller:knative-v0.11.1
+docker pull gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:792f6945c7bc73a49a470a5b955c39c8bd174705743abf5fb71aa0f4c04128eb | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/activator:knative-v0.11.1
-docker push paihub/activator:knative-v0.11.1
-docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa@sha256:5e0fadf574e66fb1c893806b5c5e5f19139cc476ebf1dff9860789fe4ac5f545 | grep "Digest:" | cut -f2 -d " " > container_digest
- iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
-echo $iid
-docker tag $iid paihub/autoscaler-hpa:knative-v0.11.1
-docker push paihub/autoscaler-hpa:knative-v0.11.1
-docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:ef1f01b5fb3886d4c488a219687aac72d28e72f808691132f658259e4e02bb27 | grep "Digest:" | cut -f2 -d " " > container_digest
- iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
-echo $iid
-docker tag $iid paihub/autoscaler:knative-v0.11.1
-docker push paihub/autoscaler:knative-v0.11.1 
-docker pull gcr.io/knative-releases/knative.dev/serving/cmd/networking/istio@sha256:727a623ccb17676fae8058cb1691207a9658a8d71bc7603d701e23b1a6037e6c | grep "Digest:" | cut -f2 -d " " > container_digest
- iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
-echo $iid
-docker tag $iid paihub/istio:knative-v0.11.1
-docker push paihub/istio:knative-v0.11.1  
-docker pull gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:1ef3328282f31704b5802c1136bd117e8598fd9f437df8209ca87366c5ce9fcb | grep "Digest:" | cut -f2 -d " " > container_digest
- iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
-echo $iid
-docker tag $iid paihub/webhook:knative-v0.11.1
-docker push paihub/webhook:knative-v0.11.1 
-docker pull gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:5ca13e5b3ce5e2819c4567b75c0984650a57272ece44bc1dabf930f9fe1e19a1 | grep "Digest:" | cut -f2 -d " " > container_digest
- iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
-echo $iid
-docker tag $iid paihub/controller:knative-v0.11.1
-docker push paihub/controller:knative-v0.11.1
+docker tag $iid paihub/queue:knative-v0.11.1
+docker push paihub/queue:knative-v0.11.1
