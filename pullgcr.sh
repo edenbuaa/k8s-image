@@ -45,8 +45,19 @@ gcr_images3=(
 gcr.io/kubeflow-images-public/admission-webhook:v20190520-v0-139-gcee39dbc-dirty-0d8f4c
 gcr.io/kubeflow-images-public/jupyter-web-app:v0.5.0
 )
-gcr_images=(
+gcr_images4=(
 gcr.io/kfserving/kfserving-controller:0.2.2
+)
+gcr_images=(
+gcr.io/kfserving/alibi-explainer:v0.3.0
+gcr.io/kfserving/sklearnserver:v0.3.0
+gcr.io/kfserving/xgbserver:v0.3.0
+gcr.io/kfserving/pytorchserver:v0.3.0
+gcr.io/kfserving/pytorchserver:v0.3.0-gpu
+gcr.io/kfserving/storage-initializer:v0.3.0
+gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0   
+gcr.io/kfserving/kfserving-controller:v0.3.0
+gcr.io/kfserving/logger:v0.3.0
 )
 docker login
 
