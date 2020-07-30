@@ -79,7 +79,7 @@ docker login
 #docker tag $iid paihub/queue:knative-v0.11.1
 #docker push paihub/queue:knative-v0.11.1
 
-docker login
+
 docker pull  gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:3f8db840f5b3778a842dbbf7e8bc9f2babd10b144b816c8497ac46430db8254e | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
@@ -89,7 +89,7 @@ docker push paihub/controller:net-istio-knative-v0.15.0
 docker pull  gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:b691c81d117d666d479b4f57416f3edd53f282a7346c64af4ce9c4585df5bec7 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/webhook::net-istio-knative-v0.15.0
+docker tag $iid paihub/webhook:net-istio-knative-v0.15.0
 docker push paihub/webhook::net-istio-knative-v0.15.0
 
 
@@ -126,6 +126,8 @@ iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g
 echo $iid
 docker tag $iid paihub/webhook:knative-v0.15.0
 docker push paihub/webhook:knative-v0.15.0
+
+
 
 
 
