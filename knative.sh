@@ -129,61 +129,61 @@ docker login
 
 # --------for the 0.4(kfserving)-----
 
-gcr.io/kfserving/batcher:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/batcher:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/batcher:kfserving-v0.4.0
 docker push paihub/batcher:kfserving-v0.4.0
 
-gcr.io/kfserving/alibi-explainer:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/alibi-explainer:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/alibi-explainer:kfserving-v0.4.0
 docker push paihub/alibi-explainer:kfserving-v0.4.0
 
-gcr.io/kfserving/sklearnserver:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/sklearnserver:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/sklearnserver:kfserving-v0.4.0
 docker push paihub/sklearnserver:kfserving-v0.4.0
 
-gcr.io/kfserving/xgbserver:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/xgbserver:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/xgbserver:kfserving-v0.4.0
 docker push paihub/xgbserver:kfserving-v0.4.0
 
-gcr.io/kfserving/pytorchserver:v0.4.0	 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/pytorchserver:v0.4.0	 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/pytorchserver:kfserving-v0.4.0
 docker push paihub/pytorchserver:kfserving-v0.4.0
 
-gcr.io/kfserving/pytorchserver:v0.4.0-gpu | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/pytorchserver:v0.4.0-gpu | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/pytorchserver:kfserving-v0.4.0
 docker push paihub/pytorchserver:kfserving-v0.4.0
 
-nvcr.io/nvidia/tritonserver:20.03-py3 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull nvcr.io/nvidia/tritonserver:20.03-py3 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/tritonserver:20.03-py3
 docker push paihub/tritonserver:20.03-py3
 
-gcr.io/kfserving/storage-initializer:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/storage-initializer:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/storage-initializer:kfserving-v0.4.0
 docker push paihub/storage-initializer:kfserving-v0.4.0
 
-gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/kube-rbac-proxy:kfserving-v0.4.0
 docker push paihub/kube-rbac-proxy:kfserving-v0.4.0
 
-gcr.io/kfserving/kfserving-controller:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+docker pull gcr.io/kfserving/kfserving-controller:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
 docker tag $iid paihub/kfserving-controller:kfserving-v0.4.0
