@@ -90,7 +90,7 @@ docker login
 # iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 # echo $iid
 # docker tag $iid paihub/webhook:net-istio-knative-v0.15.0
-# docker push paihub/webhook::net-istio-knative-v0.15.0
+# docker push paihub/webhook:net-istio-knative-v0.15.0
 # 
 # 
 # docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:713bd548700bf7fe5452969611d1cc987051bd607d67a4e7623e140f06c209b2 | grep "Digest:" | cut -f2 -d " " > container_digest
