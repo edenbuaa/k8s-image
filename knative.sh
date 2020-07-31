@@ -79,54 +79,115 @@ docker login
 #docker tag $iid paihub/queue:knative-v0.11.1
 #docker push paihub/queue:knative-v0.11.1
 
+#------------for the 0.4------------------
+# docker pull  gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:3f8db840f5b3778a842dbbf7e8bc9f2babd10b144b816c8497ac46430db8254e | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/controller:net-istio-knative-v0.15.0
+# docker push paihub/controller:net-istio-knative-v0.15.0
+# 
+# docker pull  gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:b691c81d117d666d479b4f57416f3edd53f282a7346c64af4ce9c4585df5bec7 | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/webhook:net-istio-knative-v0.15.0
+# docker push paihub/webhook::net-istio-knative-v0.15.0
+# 
+# 
+# docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:713bd548700bf7fe5452969611d1cc987051bd607d67a4e7623e140f06c209b2 | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/queue:knative-v0.15.0
+# docker push paihub/queue:knative-v0.15.0
+# 
+# 
+# docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:a5de0fb75046f2ad29a9394b9f4f31d258c4abaea3529cf3443d69e2aab1a879 | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/activator:knative-v0.15.0
+# docker push paihub/activator:knative-v0.15.0
+# 
+# 
+# docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:61fc208b9c7923228275f8792288b3e356b2e80432655f237baafcf8ab7c3449 | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/autoscaler:knative-v0.15.0
+# docker push paihub/autoscaler:knative-v0.15.0
+# 
+# 
+# docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:51d92a912852f6bdc62468c7c3932e90786217425421c6b9f5366f4724b39fba | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/controller:knative-v0.15.0
+# docker push paihub/controller:knative-v0.15.0
+# 
+# 
+# docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:bfb31793e70608a70a8e1c778b6183eba786bcd10491d84807d300accceb46b0 | grep "Digest:" | cut -f2 -d " " > container_digest
+# iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+# echo $iid
+# docker tag $iid paihub/webhook:knative-v0.15.0
+# docker push paihub/webhook:knative-v0.15.0
 
-docker pull  gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:3f8db840f5b3778a842dbbf7e8bc9f2babd10b144b816c8497ac46430db8254e | grep "Digest:" | cut -f2 -d " " > container_digest
+# --------for the 0.4(kfserving)-----
+
+gcr.io/kfserving/batcher:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/controller:net-istio-knative-v0.15.0
-docker push paihub/controller:net-istio-knative-v0.15.0
+docker tag $iid paihub/batcher:kfserving-v0.4.0
+docker push paihub/batcher:kfserving-v0.4.0
 
-docker pull  gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:b691c81d117d666d479b4f57416f3edd53f282a7346c64af4ce9c4585df5bec7 | grep "Digest:" | cut -f2 -d " " > container_digest
+gcr.io/kfserving/alibi-explainer:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/webhook:net-istio-knative-v0.15.0
-docker push paihub/webhook::net-istio-knative-v0.15.0
+docker tag $iid paihub/alibi-explainer:kfserving-v0.4.0
+docker push paihub/alibi-explainer:kfserving-v0.4.0
 
-
-docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:713bd548700bf7fe5452969611d1cc987051bd607d67a4e7623e140f06c209b2 | grep "Digest:" | cut -f2 -d " " > container_digest
+gcr.io/kfserving/sklearnserver:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/queue:knative-v0.15.0
-docker push paihub/queue:knative-v0.15.0
+docker tag $iid paihub/sklearnserver:kfserving-v0.4.0
+docker push paihub/sklearnserver:kfserving-v0.4.0
 
-
-docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:a5de0fb75046f2ad29a9394b9f4f31d258c4abaea3529cf3443d69e2aab1a879 | grep "Digest:" | cut -f2 -d " " > container_digest
+gcr.io/kfserving/xgbserver:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/activator:knative-v0.15.0
-docker push paihub/activator:knative-v0.15.0
+docker tag $iid paihub/xgbserver:kfserving-v0.4.0
+docker push paihub/xgbserver:kfserving-v0.4.0
 
-
-docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:61fc208b9c7923228275f8792288b3e356b2e80432655f237baafcf8ab7c3449 | grep "Digest:" | cut -f2 -d " " > container_digest
+gcr.io/kfserving/pytorchserver:v0.4.0	 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/autoscaler:knative-v0.15.0
-docker push paihub/autoscaler:knative-v0.15.0
+docker tag $iid paihub/pytorchserver:kfserving-v0.4.0
+docker push paihub/pytorchserver:kfserving-v0.4.0
 
-
-docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:51d92a912852f6bdc62468c7c3932e90786217425421c6b9f5366f4724b39fba | grep "Digest:" | cut -f2 -d " " > container_digest
+gcr.io/kfserving/pytorchserver:v0.4.0-gpu | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/controller:knative-v0.15.0
-docker push paihub/controller:knative-v0.15.0
+docker tag $iid paihub/pytorchserver:kfserving-v0.4.0
+docker push paihub/pytorchserver:kfserving-v0.4.0
 
-
-docker pull  gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:bfb31793e70608a70a8e1c778b6183eba786bcd10491d84807d300accceb46b0 | grep "Digest:" | cut -f2 -d " " > container_digest
+nvcr.io/nvidia/tritonserver:20.03-py3 | grep "Digest:" | cut -f2 -d " " > container_digest
 iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
 echo $iid
-docker tag $iid paihub/webhook:knative-v0.15.0
-docker push paihub/webhook:knative-v0.15.0
+docker tag $iid paihub/tritonserver:20.03-py3
+docker push paihub/tritonserver:20.03-py3
 
+gcr.io/kfserving/storage-initializer:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+echo $iid
+docker tag $iid paihub/storage-initializer:kfserving-v0.4.0
+docker push paihub/storage-initializer:kfserving-v0.4.0
+
+gcr.io/kubebuilder/kube-rbac-proxy:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+echo $iid
+docker tag $iid paihub/kube-rbac-proxy:kfserving-v0.4.0
+docker push paihub/kube-rbac-proxy:kfserving-v0.4.0
+
+gcr.io/kfserving/kfserving-controller:v0.4.0 | grep "Digest:" | cut -f2 -d " " > container_digest
+iid=`docker images --digests | grep $(cat container_digest) | sed -Ee 's/\s+/ /g' | cut -f4 -d " "`
+echo $iid
+docker tag $iid paihub/kfserving-controller:kfserving-v0.4.0
+docker push paihub/kfserving-controller:kfserving-v0.4.0
 
 
 
